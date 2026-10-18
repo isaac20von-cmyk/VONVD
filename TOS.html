@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Terms of Service | VON Visual Designs</title>
+  <meta name="description" content="Read the Terms of Service for VON Visual Designs, including website design, development, payments, public source code, and third-party services.">
+  <meta name="theme-color" content="#faf9f6">
+
+  <style>
+    :root {
+      --bg: #faf9f6;
+      --surface: #ffffff;
+      --text: #191919;
+      --muted: #747474;
+      --border: #e6e4df;
+      --accent: #b8f36b;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(250, 249, 246, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 3px;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.55;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 5px;
+      background: var(--text);
+      color: white;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 90px 0 65px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #83bd3c;
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      max-width: 800px;
+      font-size: clamp(44px, 7vw, 82px);
+      letter-spacing: -0.075em;
+      line-height: 0.99;
+      font-weight: 750;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .updated {
+      margin-top: 30px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Main layout */
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 70px;
+      align-items: start;
+      padding: 65px 0 100px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 105px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .sidebar-title {
+      margin: 0 0 15px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--muted);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 7px 0;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #555;
+      transition: color 0.2s;
+    }
+
+    .sidebar a:hover {
+      color: #111;
+    }
+
+    .terms {
+      min-width: 0;
+    }
+
+    .intro {
+      margin: 0 0 35px;
+      padding: 24px;
+      background: #f0eee8;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .term-section {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 100px;
+    }
+
+    .term-section:first-of-type {
+      padding-top: 0;
+    }
+
+    .term-section h2 {
+      margin: 0 0 13px;
+      font-size: 21px;
+      letter-spacing: -0.6px;
+      line-height: 1.3;
+    }
+
+    .term-section p {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #505050;
+    }
+
+    .term-section ul {
+      padding-left: 22px;
+      margin: 12px 0;
+      color: #505050;
+      font-size: 14px;
+    }
+
+    .term-section li {
+      padding: 3px 0;
+    }
+
+    .term-section strong {
+      color: var(--text);
+    }
+
+    .contact-card {
+      margin-top: 35px;
+      padding: 28px;
+      border-radius: 8px;
+      background: var(--text);
+      color: white;
+    }
+
+    .contact-card h2 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .contact-card p {
+      color: #c9c9c9;
+      font-size: 14px;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 17px;
+      background: var(--accent);
+      color: #171717;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-inner p,
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 800px) {
+      .content-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 35px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 18px;
+      }
+
+      .hero {
+        padding: 65px 0 45px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .nav-cta {
+        padding: 10px 12px;
+      }
+
+      .brand {
+        font-size: 13px;
+      }
+
+      .brand span {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .sidebar {
+        padding: 17px;
+      }
+
+      .sidebar nav {
+        grid-template-columns: 1fr;
+      }
+
+      .term-section h2 {
+        font-size: 19px;
+      }
+
+      .term-section p,
+      .term-section ul {
+        font-size: 13px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="https://vonvisualdesigns.com/">
+        VON VISUAL DESIGNS
+        <span>DESIGN. DEVELOP. DELIVER.</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="https://vonvisualdesigns.com/">Home</a>
+        <a class="nav-cta"
+           href="https://tally.so/r/o96gPN">
+          Let's build something
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Legal information</div>
+        <h1>Terms of<br>Service.</h1>
+        <p class="hero-description">
+          Clear expectations. Better projects. These terms explain how
+          VON Visual Designs works with clients to design and develop
+          websites.
+        </p>
+        <p class="updated">Last updated: October 17, 2026</p>
+      </div>
+    </section>
+
+    <div class="container content-layout">
+
+      <aside class="sidebar">
+        <p class="sidebar-title">On this page</p>
+        <nav aria-label="Terms of Service sections">
+          <a href="#acceptance">1. Acceptance of Terms</a>
+          <a href="#services">2. Our Services</a>
+          <a href="#pricing">3. Pricing and Payments</a>
+          <a href="#revisions">4. Revisions</a>
+          <a href="#hosting">5. Hosting and Domains</a>
+          <a href="#stores">6. Online Stores</a>
+          <a href="#github">7. GitHub and Source Code</a>
+          <a href="#ownership">8. Ownership and Licensing</a>
+          <a href="#responsibilities">9. Client Responsibilities</a>
+          <a href="#third-party">10. Third-Party Services</a>
+          <a href="#delivery">11. Delivery and Support</a>
+          <a href="#cancellations">12. Cancellations and Refunds</a>
+          <a href="#liability">13. Liability</a>
+          <a href="#changes">14. Changes to Terms</a>
+          <a href="#contact">15. Contact</a>
+        </nav>
+      </aside>
+
+      <article class="terms">
+
+        <div class="intro">
+          By requesting, purchasing, or using services from VON Visual
+          Designs, you agree to the terms that apply to your project.
+          Please read these terms before proceeding. Project-specific
+          agreements may provide additional details.
+        </div>
+
+        <section class="term-section" id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            These Terms of Service govern the relationship between
+            VON Visual Designs ("we," "us," or "our") and individuals
+            or businesses using our website design and development
+            services ("you" or "the client").
+          </p>
+          <p>
+            By accepting a project proposal, agreeing to a project
+            agreement, or purchasing our services, you acknowledge
+            that you have read and agreed to the applicable terms.
+            Merely visiting our website does not mean you have
+            agreed to purchase services.
+          </p>
+          <p>
+            If you do not agree to these terms, do not purchase or
+            proceed with our services.
+          </p>
+        </section>
+
+        <section class="term-section" id="services">
+          <h2>2. Our Services</h2>
+          <p>
+            VON Visual Designs provides website design and development
+            services. Websites are built using code and may use
+            technologies such as HTML, CSS, JavaScript, and other
+            appropriate tools.
+          </p>
+          <p>Depending on the agreed project scope, services may include:</p>
+          <ul>
+            <li>Custom website layouts and visual design.</li>
+            <li>Responsive desktop, tablet, and mobile layouts.</li>
+            <li>Website navigation, buttons, and interactive features.</li>
+            <li>Forms, integrations, and other agreed functionality.</li>
+            <li>Website deployment or setup, when included in the project.</li>
+          </ul>
+          <p>
+            Every project is different. Specific pages, features,
+            deliverables, deadlines, and prices will be established
+            through the applicable project agreement or written
+            proposal.
+          </p>
+        </section>
+
+        <section class="term-section" id="pricing">
+          <h2>3. Pricing and Payments</h2>
+          <p>
+            The price and payment schedule for a project will be
+            communicated before the client commits to the work.
+            Deposits, milestone payments, and final payment deadlines
+            will be specified in the project agreement when applicable.
+          </p>
+          <ul>
+            <li>Additional work outside the agreed scope may cost extra.</li>
+            <li>Work may be paused when agreed payments are overdue.</li>
+            <li>Third-party fees are not included unless expressly stated.</li>
+            <li>Any new charges must be communicated and approved before the additional work begins.</li>
+          </ul>
+          <p>
+            Applicable taxes and payment processing fees will be handled
+            as disclosed in the project terms and as required by law.
+          </p>
+        </section>
+
+        <section class="term-section" id="revisions">
+          <h2>4. Revisions and Changes</h2>
+          <p>
+            The number of included revisions, if any, will be agreed
+            upon for each project. A revision generally means an
+            adjustment to an existing design or agreed feature.
+          </p>
+          <p>
+            New pages, major redesigns, additional integrations, or
+            changes to previously approved requirements may be treated
+            as additional work and may require a new quote.
+          </p>
+          <p>
+            We will communicate significant changes to the cost or
+            scope before proceeding with the extra work.
+          </p>
+        </section>
+
+        <section class="term-section" id="hosting">
+          <h2>5. Hosting and Domains</h2>
+          <p>
+            A website may require web hosting, a domain name, or
+            other services to be accessible online. These services
+            may be provided by independent third-party companies.
+          </p>
+          <p>
+            Unless hosting or domain registration is specifically
+            included in the project agreement, the client is
+            responsible for obtaining and maintaining these services
+            and paying their associated fees.
+          </p>
+          <p>
+            We cannot guarantee uninterrupted service from third-party
+            hosting providers or domain registrars.
+          </p>
+        </section>
+
+        <section class="term-section" id="stores">
+          <h2>6. Online Stores and Payment Processing</h2>
+          <p>
+            Online stores and websites that accept payments may require
+            additional integrations and services, such as PayPal or
+            another compatible payment processor.
+          </p>
+          <p>
+            Depending on the project, a complete store may also require
+            hosting, a database, order management, inventory tools,
+            checkout functionality, and other infrastructure.
+            These are not automatically included in every website.
+          </p>
+          <p>The client is responsible for:</p>
+          <ul>
+            <li>Creating and maintaining required payment processor accounts.</li>
+            <li>Paying applicable transaction fees and subscriptions.</li>
+            <li>Managing products, orders, refunds, and customer service.</li>
+            <li>Handling applicable taxes and legal obligations for their business.</li>
+            <li>Following the payment provider's rules and policies.</li>
+          </ul>
+          <p>
+            VON Visual Designs does not act as a bank or payment
+            processor. Payment processing is subject to the provider's
+            approval, availability, and terms.
+          </p>
+        </section>
+
+        <section class="term-section" id="github">
+          <h2>7. GitHub and Public Source Code</h2>
+          <p>
+            VON Visual Designs uses GitHub to store and manage website
+            code. <strong>Project repositories may be public.</strong>
+            A public repository can allow other people to view,
+            download, copy, or reuse its contents.
+          </p>
+          <p>
+            Clients should not assume that source code stored in a
+            public repository is confidential or exclusive to them.
+            Copyright, applicable licenses, and third-party rights
+            continue to apply.
+          </p>
+          <p>
+            Private repositories or alternative arrangements must be
+            discussed before the project begins and may involve
+            additional costs or limitations.
+          </p>
+          <p>
+            We will take reasonable care not to intentionally publish
+            confidential credentials. Clients must never place passwords,
+            API keys, payment credentials, or other sensitive information
+            in a public repository.
+          </p>
+        </section>
+
+        <section class="term-section" id="ownership">
+          <h2>8. Ownership and Licensing</h2>
+          <p>
+            Ownership and permitted use of the final website, custom
+            code, designs, graphics, and other deliverables will be
+            established in the applicable project agreement.
+          </p>
+          <p>
+            Payment alone does not necessarily transfer every
+            intellectual property right. Clients should review their
+            project agreement to understand what rights they receive
+            and which files will be delivered.
+          </p>
+          <p>
+            Third-party libraries, frameworks, fonts, images, and
+            other assets remain subject to their own licenses.
+            Any license applied to a public repository may affect
+            how its contents can be reused.
+          </p>
+        </section>
+
+        <section class="term-section" id="responsibilities">
+          <h2>9. Client Responsibilities</h2>
+          <p>The client agrees to:</p>
+          <ul>
+            <li>Provide accurate information and timely project feedback.</li>
+            <li>Provide content and materials they have permission to use.</li>
+            <li>Review project work and communicate requested changes.</li>
+            <li>Maintain required third-party accounts when applicable.</li>
+            <li>Ensure their business practices and website content comply with applicable laws.</li>
+          </ul>
+          <p>
+            Clients must not use our services to facilitate fraud,
+            unlawful activities, or infringement of another person's
+            rights. Delays in receiving required content, feedback,
+            or approvals may affect project timelines.
+          </p>
+        </section>
+
+        <section class="term-section" id="third-party">
+          <h2>10. Third-Party Services</h2>
+          <p>
+            Websites may depend on external services, including GitHub,
+            hosting providers, domain registrars, payment processors,
+            APIs, and other software platforms.
+          </p>
+          <p>
+            We do not control these providers and cannot guarantee
+            their continued availability, pricing, policies, or
+            performance. We are not responsible for independent
+            service interruptions or account restrictions imposed
+            by third parties, except where applicable law provides otherwise.
+          </p>
+          <p>
+            Clients are responsible for reviewing the terms and
+            requirements of services they use directly.
+          </p>
+        </section>
+
+        <section class="term-section" id="delivery">
+          <h2>11. Delivery, Maintenance, and Support</h2>
+          <p>
+            Deliverables and estimated completion dates will be
+            established for each project. Timelines may change due
+            to scope changes, delayed feedback, late payments, or
+            circumstances outside our reasonable control.
+          </p>
+          <p>
+            Ongoing maintenance, updates, security monitoring,
+            technical support, and new features are not automatically
+            included after delivery unless agreed upon in writing.
+          </p>
+          <p>
+            We make reasonable efforts to deliver work according to
+            the agreed requirements, but cannot guarantee that every
+            website will always be error-free, continuously available,
+            or compatible with every device and third-party service.
+          </p>
+        </section>
+
+        <section class="term-section" id="cancellations">
+          <h2>12. Cancellations and Refunds</h2>
+          <p>
+            Project cancellations and refund terms will be governed
+            by the applicable project agreement and applicable law.
+          </p>
+          <p>
+            Where permitted by law, clients may be responsible for
+            work already completed and disclosed, agreed expenses
+            incurred before cancellation. Any refund eligibility,
+            cancellation charges, or delivery of unfinished work
+            will be handled according to the agreed terms.
+          </p>
+          <p>
+            Nothing in this section removes any refund or cancellation
+            rights that cannot legally be waived.
+          </p>
+        </section>
+
+        <section class="term-section" id="liability">
+          <h2>13. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by applicable law,
+            VON Visual Designs will not be liable for indirect,
+            incidental, special, or consequential losses arising
+            from the use of our services, including lost profits,
+            lost revenue, or business interruptions.
+          </p>
+          <p>
+            We are not responsible for issues caused by third-party
+            services, client-provided materials, or unauthorized
+            modifications made after delivery, except where
+            applicable law provides otherwise.
+          </p>
+          <p>
+            These terms do not exclude or limit liability where
+            such an exclusion or limitation is prohibited by law.
+          </p>
+        </section>
+
+        <section class="term-section" id="changes">
+          <h2>14. Changes to These Terms</h2>
+          <p>
+            We may update these Terms of Service from time to time.
+            The latest version will be published on this page with
+            an updated date.
+          </p>
+          <p>
+            Changes apply as permitted by applicable law. Changes
+            to an existing project's agreed terms may require
+            additional written agreement.
+          </p>
+        </section>
+
+        <section class="term-section" id="contact">
+          <h2>15. Contact VON Visual Designs</h2>
+          <p>
+            If you have questions about these Terms of Service or
+            our website design services, please contact us through
+            our website or project inquiry form.
+          </p>
+          <p>
+            By entering into a project agreement or otherwise
+            accepting our services, you agree to the terms applicable
+            to that engagement.
+          </p>
+        </section>
+
+        <div class="contact-card">
+          <h2>Ready to build something?</h2>
+          <p>
+            Have a project in mind? Tell us what you're looking for
+            and let's discuss your website.
+          </p>
+          <a href="https://tally.so/r/o96gPN">
+            Start a project &rarr;
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> VON Visual Designs.</p>
+      <div class="footer-links">
+        <a href="https://vonvisualdesigns.com/">Home</a>
+        <a href="https://tally.so/r/o96gPN">Contact</a>
+        <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
