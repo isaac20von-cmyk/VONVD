@@ -263,8 +263,7 @@
       gap: 12px;
     }
 
-    .facebook,
-    .email-button {
+    .facebook {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -275,22 +274,12 @@
       font-weight: 750;
       text-decoration: none;
       transition: transform .2s ease, background .2s ease;
-    }
-
-    .facebook {
       background: #fff;
       color: #111;
     }
 
-    .facebook:hover,
-    .email-button:hover {
+    .facebook:hover {
       transform: translateY(-2px);
-    }
-
-    .email-button {
-      background: #111;
-      color: #fff;
-      border: 1px solid #111;
     }
 
     .fb-icon {
@@ -305,9 +294,16 @@
       font-size: 13px;
     }
 
-    .email-icon {
-      font-size: 16px;
-      line-height: 1;
+    .contact-email {
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-email strong {
+      font-weight: 800;
     }
 
     /* Footer */
@@ -366,6 +362,12 @@
 
     .footer-links a:hover {
       color: #fff;
+    }
+
+    .footer-email {
+      color: #c2c2c2;
+      font-size: 12px;
+      overflow-wrap: anywhere;
     }
 
     .footer-bottom {
@@ -468,12 +470,11 @@
       }
 
       .contact-buttons {
-        align-items: stretch;
+        align-items: flex-start;
         flex-direction: column;
       }
 
-      .facebook,
-      .email-button {
+      .facebook {
         width: 100%;
       }
 
@@ -644,14 +645,9 @@
             <span aria-hidden="true">↗</span>
           </a>
 
-          <a
-            class="email-button"
-            href="mailto:info@vonvisualdesigns.com"
-          >
-            <span class="email-icon" aria-hidden="true">✉</span>
-            Email Us
-            <span aria-hidden="true">↗</span>
-          </a>
+          <p class="contact-email">
+            Email us: <strong>info@vonvisualdesigns.com</strong>
+          </p>
         </div>
       </div>
     </section>
@@ -683,9 +679,9 @@
           <a href="https://vonvisualdesigns.com/TOS">
             Terms of Service
           </a>
-          <a href="mailto:info@vonvisualdesigns.com">
-            Email us ↗
-          </a>
+          <span class="footer-email">
+            Email us: info@vonvisualdesigns.com
+          </span>
         </nav>
       </div>
 
