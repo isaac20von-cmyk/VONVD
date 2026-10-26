@@ -57,12 +57,18 @@
     }
 
     .brand {
-      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
       text-decoration: none;
-      font-size: 12px;
-      font-weight: 850;
-      letter-spacing: -.045em;
       white-space: nowrap;
+    }
+
+    .site-logo {
+      display: block;
+      width: clamp(150px, 18vw, 210px);
+      height: auto;
+      object-fit: contain;
     }
 
     nav {
@@ -328,13 +334,18 @@
     }
 
     .footer-logo {
-      display: inline-block;
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: -.045em;
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
       margin-bottom: 12px;
+    }
+
+    .footer-logo img {
+      display: block;
+      width: 165px;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .footer-description {
@@ -422,8 +433,8 @@
         min-height: 68px;
       }
 
-      .brand {
-        font-size: 11px;
+      .site-logo {
+        width: 155px;
       }
 
       nav {
@@ -505,6 +516,10 @@
         gap: 16px;
       }
 
+      .site-logo {
+        width: 145px;
+      }
+
       nav {
         width: 100%;
         justify-content: space-between;
@@ -539,7 +554,7 @@
 
   <header class="wrap">
     <a class="brand" href="#top" aria-label="VON Visual Designs home">
-      VON VISUAL DESIGNS
+      <img class="site-logo" src="/logo.png" alt="Von Visual Designs">
     </a>
 
     <nav aria-label="Main navigation">
@@ -658,8 +673,8 @@
 
       <div class="footer-main">
         <div class="footer-brand">
-          <a class="footer-logo" href="#top">
-            VON VISUAL DESIGNS
+          <a class="footer-logo" href="#top" aria-label="Von Visual Designs home">
+            <img src="/logo.png" alt="Von Visual Designs">
           </a>
 
           <p class="footer-description">
