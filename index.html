@@ -438,11 +438,11 @@
       }
 
       nav {
-        gap: 14px;
+        gap: clamp(10px, 3vw, 14px);
       }
 
       nav a {
-        font-size: 11px;
+        font-size: clamp(10px, 2.8vw, 11px);
       }
 
       .hero {
@@ -547,10 +547,435 @@
         animation-duration: .01ms !important;
       }
     }
+
+    /* Motion system: polished, fluid, and responsive */
+    :root {
+      --ease-out: cubic-bezier(.2, .75, .25, 1);
+      --ease-spring: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    body {
+      overflow-x: clip;
+    }
+
+    header {
+      position: relative;
+      z-index: 5;
+      animation: header-arrive .8s var(--ease-out) both;
+    }
+
+    .site-logo, .footer-logo img {
+      transition: transform .45s var(--ease-out), filter .45s ease;
+    }
+
+    .brand:hover .site-logo,
+    .footer-logo:hover img {
+      transform: translateY(-2px) scale(1.025);
+      filter: drop-shadow(0 8px 18px rgba(40, 85, 255, .18));
+    }
+
+    nav a {
+      position: relative;
+      padding-block: 8px;
+    }
+
+    header nav a::after,
+    .footer-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 1px;
+      background: var(--blue);
+      transition: right .28s var(--ease-out);
+    }
+
+    header nav a:hover::after,
+    header nav a:focus-visible::after,
+    .footer-links a:hover::after,
+    .footer-links a:focus-visible::after {
+      right: 0;
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: clamp(220px, 38vw, 520px);
+      aspect-ratio: 1;
+      right: 1%;
+      top: 4%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40,85,255,.19), rgba(40,85,255,.055) 42%, transparent 70%);
+      filter: blur(12px);
+      pointer-events: none;
+      animation: ambient-drift 11s ease-in-out infinite alternate;
+    }
+
+    .hero h1 {
+      animation: hero-rise .9s .08s var(--ease-out) both;
+    }
+
+    .hero-bottom {
+      animation: hero-rise .9s .22s var(--ease-out) both;
+    }
+
+    .button {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 3px;
+      box-shadow: 0 8px 22px rgba(40,85,255,.12);
+      transition: transform .28s var(--ease-out), background .28s ease, box-shadow .28s ease;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.22) 48%, transparent 76%);
+      transform: translateX(-130%);
+      transition: transform .65s var(--ease-out);
+    }
+
+    .button:hover::before,
+    .button:focus-visible::before {
+      transform: translateX(130%);
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(40,85,255,.27);
+    }
+
+    .button .arrow {
+      display: inline-block;
+      transition: transform .28s var(--ease-out);
+    }
+
+    .button:hover .arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--blue);
+      transform-origin: left;
+      transition: width .35s var(--ease-out);
+    }
+
+    section:hover > .eyebrow::before {
+      width: 32px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+      transform: translateZ(0);
+      transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
+    }
+
+    .project::after {
+      content: "↗";
+      position: absolute;
+      top: 24px;
+      right: 26px;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(17,17,17,.18);
+      border-radius: 50%;
+      font-size: 18px;
+      opacity: .55;
+      transform: translate(-4px, 4px);
+      transition: opacity .3s ease, transform .3s var(--ease-out), background .3s ease, color .3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(0,0,0,.22);
+    }
+
+    .project:hover::after {
+      opacity: 1;
+      transform: translate(0, 0);
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    .project h3 {
+      transition: transform .35s var(--ease-out);
+    }
+
+    .project:hover h3 {
+      transform: translateX(3px);
+    }
+
+    .tag {
+      transition: letter-spacing .3s ease;
+    }
+
+    .project:hover .tag {
+      letter-spacing: .12em;
+    }
+
+    .service {
+      position: relative;
+      transition: padding .3s var(--ease-out), background .3s ease;
+    }
+
+    .service::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--blue);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .3s var(--ease-out);
+    }
+
+    .service:hover {
+      padding-left: 22px;
+      padding-right: 18px;
+      background: linear-gradient(90deg, rgba(40,85,255,.10), transparent 70%);
+    }
+
+    .service:hover::before {
+      transform: scaleY(1);
+    }
+
+    .service h3,
+    .service .price {
+      transition: transform .3s var(--ease-out), color .3s ease;
+    }
+
+    .service:hover h3 {
+      transform: translateX(3px);
+    }
+
+    .service:hover .price {
+      color: #fff;
+      transform: translateX(-2px);
+    }
+
+    .contact {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 3px;
+    }
+
+    .contact::before,
+    .contact::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      transition: transform .8s var(--ease-out);
+    }
+
+    .contact::before {
+      width: clamp(180px, 35vw, 430px);
+      aspect-ratio: 1;
+      right: -8%;
+      top: -60%;
+    }
+
+    .contact::after {
+      width: clamp(120px, 24vw, 290px);
+      aspect-ratio: 1;
+      right: 6%;
+      top: -34%;
+    }
+
+    .contact:hover::before {
+      transform: translate(-18px, 18px) scale(1.04);
+    }
+
+    .contact:hover::after {
+      transform: translate(12px, 10px) scale(1.08);
+    }
+
+    .facebook {
+      border-radius: 3px;
+      transition: transform .28s var(--ease-out), box-shadow .28s ease, background .28s ease;
+    }
+
+    .facebook:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.16);
+      background: #f0f2ff;
+    }
+
+    .fb-icon {
+      transition: transform .28s var(--ease-spring);
+    }
+
+    .facebook:hover .fb-icon {
+      transform: rotate(-8deg) scale(1.12);
+    }
+
+    .footer-links a {
+      position: relative;
+      width: fit-content;
+    }
+
+    .back-to-top span {
+      display: inline-block;
+      transition: transform .25s var(--ease-out);
+    }
+
+    .back-to-top:hover span {
+      transform: translateY(-4px);
+    }
+
+    /* Elements gently enter as the visitor scrolls */
+    .js-motion [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .js-motion [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js-motion .project[data-reveal] {
+      transform: translateY(28px) scale(.985);
+    }
+
+    .js-motion .project[data-reveal].is-visible {
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-progress {
+      position: fixed;
+      z-index: 20;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, #2855ff, #83a0ff);
+      pointer-events: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid #83a0ff;
+      outline-offset: 4px;
+    }
+
+    @keyframes header-arrive {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes hero-rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes ambient-drift {
+      from { transform: translate3d(0, -8px, 0) scale(.96); }
+      to { transform: translate3d(-24px, 18px, 0) scale(1.06); }
+    }
+
+    @media (min-width: 1000px) {
+      .hero {
+        padding-top: clamp(100px, 11vw, 155px);
+        padding-bottom: clamp(100px, 10vw, 145px);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero::before {
+        right: -24%;
+        top: 2%;
+        opacity: .8;
+      }
+
+      .project::after {
+        top: 20px;
+        right: 20px;
+      }
+
+      .service:hover {
+        padding-left: 14px;
+        padding-right: 8px;
+      }
+
+      .contact::before {
+        right: -35%;
+        top: -18%;
+      }
+
+      .contact::after {
+        right: -6%;
+        top: 2%;
+      }
+    }
+
+    @media (hover: none) {
+      .project:hover,
+      .button:hover,
+      .facebook:hover {
+        transform: none;
+      }
+
+      .service:hover {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before {
+        animation: none !important;
+      }
+
+      .js-motion [data-reveal],
+      .js-motion .project[data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .button::before {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="wrap">
     <a class="brand" href="#top" aria-label="VON Visual Designs home">
@@ -565,7 +990,7 @@
   </header>
 
   <main id="top">
-    <div class="hero wrap">
+    <div class="hero wrap" data-reveal>
       <h1>Good businesses.<br>Exceptional websites.</h1>
 
       <div class="hero-bottom">
@@ -586,13 +1011,13 @@
       </div>
     </div>
 
-    <section class="wrap" id="work">
+    <section class="wrap" id="work" data-reveal>
       <p class="eyebrow">01 / Selected work</p>
       <h2>Real businesses. Thoughtful design.</h2>
 
       <div class="projects">
         <a
-          class="project"
+          class="project" data-reveal data-reveal
           href="#contact"
           aria-label="Ask about a business website like Where Nature Speaks"
         >
@@ -617,22 +1042,22 @@
       </div>
     </section>
 
-    <section class="wrap" id="services">
+    <section class="wrap" id="services" data-reveal>
       <p class="eyebrow">02 / What we do</p>
       <h2>Built for your business. Not the other way around.</h2>
 
       <div class="service-list">
-        <div class="service">
+        <div class="service" data-reveal>
           <h3>One-page websites</h3>
           <span class="price">$300–$500</span>
         </div>
 
-        <div class="service">
+        <div class="service" data-reveal>
           <h3>Business websites (3–5 pages)</h3>
           <span class="price">$600–$1000</span>
         </div>
 
-        <div class="service">
+        <div class="service" data-reveal>
           <h3>Updates &amp; ongoing care</h3>
           <span class="price">$50–$150 / month</span>
         </div>
@@ -643,7 +1068,7 @@
       </p>
     </section>
 
-    <section class="wrap" id="contact">
+    <section class="wrap" id="contact" data-reveal>
       <div class="contact">
         <p class="eyebrow">Your next chapter starts here</p>
         <h2>Let's make your business impossible to overlook.</h2>
@@ -711,8 +1136,58 @@
   </footer>
 
   <script>
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const yearElement = document.getElementById("current-year");
+      if (yearElement) yearElement.textContent = new Date().getFullYear();
+
+      // Reveal elements only when motion is appropriate and the browser supports it.
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        document.documentElement.classList.add("js-motion");
+
+        const revealItems = document.querySelectorAll(
+          ".hero, section, .project, .service, .contact, footer"
+        );
+
+        revealItems.forEach((item, index) => {
+          item.setAttribute("data-reveal", "");
+          if (item.classList.contains("project") || item.classList.contains("service")) {
+            item.style.setProperty("--reveal-delay", `${(index % 3) * 90}ms`);
+          }
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+
+      // A slim progress line gives subtle feedback as the page moves.
+      const progress = document.querySelector(".scroll-progress");
+      let ticking = false;
+
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const amount = scrollable > 0 ? window.scrollY / scrollable : 0;
+        if (progress) progress.style.transform = `scaleX(${Math.min(1, Math.max(0, amount))})`;
+        ticking = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateProgress();
+    })();
   </script>
 
 </body>
